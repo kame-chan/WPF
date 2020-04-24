@@ -15,20 +15,21 @@ namespace GenDataGrid
     {
         public MainWindow()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
 
         // DataGrid描画完了後にスタート
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            Console.WriteLine("loaded");
             CreateDataGrid();
         }
 
         // メイン
         private void CreateDataGrid()
         {
-            int rows = 50;
-            int columns = 50;
+            int rows = 10;
+            int columns = 10;
 
             // ヘッダーカラム作成 列数
             for (int i = 0; i < columns; ++i)
@@ -89,7 +90,7 @@ namespace GenDataGrid
                     // 画面に表示されていないセルはnullとなる
                     continue;
                 }
-                
+
                 for (int j = 0; j < columnCount; ++j)
                 {
                     // データグリッドのセルオブジェクトを取得します。
@@ -99,12 +100,23 @@ namespace GenDataGrid
                     {
                         // 画面に表示されていないセルはnullとなる ここから各セルに対する処理
 
-                        // セルの子オブジェクトを取得
+                        // セルの子オブジェクトを取得                        
                         var cellObject = dataGrid.Columns[j].GetCellContent(row);
                         TextBlock tb = cellObject as TextBlock;
 
-                        //Console.WriteLine(tb.Text);
-                        cell.Background = Brushes.Chartreuse;
+                        try
+                        {
+                            // 数値変換でエラーが出るケース有り
+                            if (Int32.Parse(tb.Text) >= 10)
+                            {
+                                cell.Background = Brushes.Red;
+                            }
+                        }
+                        catch
+                        {
+                        }
+
+                        // Console.WriteLine(tb.Text);
                     }
                 }
             }
