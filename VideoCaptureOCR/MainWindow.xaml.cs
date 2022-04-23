@@ -162,7 +162,7 @@ namespace VideoCapture4
 
                 //表示
                 Console.WriteLine(page.GetText());
-                Console.ReadLine();
+                Console.ReadLine(); // err?
             }
         }
 
