@@ -1,0 +1,45 @@
+﻿<Window x:Class="ウィンドウ"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ネームスペース"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="569.751" Width="1433.023" Loaded="Window_Loaded">
+
+    <TabControl HorizontalAlignment="Left" Height="539" VerticalAlignment="Top" Width="1425" Grid.ColumnSpan="3">
+        <TabItem Header="TabItem">
+            <Grid SizeChanged="Grid_SizeChanged">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal">
+                    <Button Content="Start / Stop" Click="Button_Click" Margin="0,0,16,0" Padding="8,1"/>
+                    <Button Content="GetStrings" Click="Button_Click_1" Padding="8,1"/>
+                    <TextBox x:Name="cropLeft" HorizontalAlignment="Left" Margin="16,0,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="40"/>
+                    <TextBox x:Name="cropTop" HorizontalAlignment="Left" Margin="16,0,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="40"/>
+                    <TextBox x:Name="cropRight" HorizontalAlignment="Left" Margin="16,0,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="40"/>
+                    <TextBox x:Name="cropBottom" HorizontalAlignment="Left" Margin="16,0,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="40"/>
+                </StackPanel>
+
+                <StackPanel x:Name="panel" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,24,0,0">
+                    <Image x:Name="_Image" Margin="0 16 0 0" HorizontalAlignment="Left"/>
+                </StackPanel>
+
+
+                <StackPanel Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Image x:Name="_Image_crop" Margin="0 16 0 0" HorizontalAlignment="Left"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2">
+                    <Image x:Name="ImgTarget" Margin="0 16 0 0" HorizontalAlignment="Left" />
+                </StackPanel>
+            </Grid>
+        </TabItem>
+        <TabItem Header="TabItem">
+            <Grid Background="#FFE5E5E5"/>
+        </TabItem>
+    </TabControl>
+
+</Window>
